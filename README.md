@@ -110,6 +110,28 @@ Com o backend rodando, acesse:
 http://localhost:5188/swagger/index.html
 ```
 
+Autenticação (Auth)
+* POST /api/auth/login - Efetuar login (público)
+
+* POST /api/auth/register - Registrar novo usuário (público)
+
+* GET /api/auth/assign-role/(userId)/(role) - Atribuir função a usuário (requer admin)
+
+* GET /api/auth/users - Listar usuários (requer admin)
+
+Tarefas (Tasks)
+* GET /api/tasks - Listar todas as tarefas
+
+* POST /api/tasks - Criar nova tarefa
+
+* GET /api/tasks/{id} - Obter tarefa específica
+
+* PUT /api/tasks/{id} - Atualizar tarefa (com verificação de autorização)
+
+* DELETE /api/tasks/{id} - Excluir tarefa (com verificação de autorização)
+
+* GET /api/tasks/paged - Listar tarefas com paginação
+
 ## Funcionalidades Implementadas
 * CRUD completo de tarefas
 
