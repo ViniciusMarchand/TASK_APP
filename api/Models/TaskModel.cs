@@ -28,7 +28,7 @@ public class TaskModel : BaseModel
 
     public bool CanDeleteTask(Guid userId, string role)
     {
-        if (role == "Admin")
+        if (role == "admin")
         {
             return true;
         }
