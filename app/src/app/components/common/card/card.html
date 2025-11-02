@@ -1,0 +1,33 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{task.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="description">
+      {{task.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+    <p class="creator-name">Created by {{task.userName}}</p>
+    <p class="creator-name">
+      Status:
+      @if(task.status == 0) {
+        Pending
+      } @else if(task.status == 1) {
+        In Progress
+      } @else if (task.status == 2) {
+        Done
+      }
+    </p>
+  </mat-card-footer>
+  <mat-card-actions>
+
+    @if(canDelete()) {
+      <button matButton (click)="deleteTask()">DELETE</button>
+    }
+
+    @if(canEdit()) {
+      <button matButton (click)="openModal()">EDIT</button>
+    }
+  </mat-card-actions>
+</mat-card>

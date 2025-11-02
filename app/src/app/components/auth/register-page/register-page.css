@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #f5f5f5;
+  width: 450px;
+  height: 500px;
+  padding: 10px 30px;
+}
+
+form {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 200px;
+}
+
+.cancel-button {
+  background-color: #d31717!important;
+}
+
+.button-row {
+  margin-top:20px;
+}

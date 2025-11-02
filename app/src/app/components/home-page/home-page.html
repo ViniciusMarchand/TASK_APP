@@ -1,0 +1,42 @@
+<section class="full-size">
+  <nav>
+    <div class="flex">
+      <button matButton="tonal" (click)="openDialog()">Create Task</button>
+      <div class="radio-container">
+        <mat-radio-group aria-label="Select an option" (change)="updateFilter($event.value)">
+          <mat-radio-button value="" checked>None</mat-radio-button>
+          <mat-radio-button value="0">Pending</mat-radio-button>
+          <mat-radio-button value="1">In Progress</mat-radio-button>
+          <mat-radio-button value="2">Done</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div>
+      @if(isAdmin) {
+      <a href="admin" matButton="tonal">Admin Settings</a>
+      }
+      <button class="ml-5" matButton="tonal" (click)="logout()">Log out</button>
+    </div>
+  </nav>
+  <div class="cards-container flex flex-wrap">
+    @if(isLoading){<mat-spinner [diameter]="70" ></mat-spinner>}@else { @for (task of tasks; track
+    task.id) {
+    <app-card
+      [task]="task"
+      (taskDeleted)="deleteTask($event)"
+      (openEditModal)="openDialogEdit($event)"
+    />
+    } }
+  </div>
+  <div class="paginator-continer">
+    <mat-paginator
+      (page)="handlePageEvent($event)"
+      class="paginator"
+      [length]="totalCount"
+      [pageSizeOptions]="[10]"
+      aria-label="Select page"
+      [pageIndex]="page"
+    >
+    </mat-paginator>
+  </div>
+</section>

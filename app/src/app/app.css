@@ -1,0 +1,12 @@
+.bg {
+  background-color: #563BD1;
+  min-height: 100vh;
+  height: 100%;
+  
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+main {
+  padding: 0px 40px;
+}
