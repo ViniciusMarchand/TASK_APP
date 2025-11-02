@@ -1,0 +1,46 @@
+<form class="w-full" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="mt-2 w-full">
+    <mat-label>Title</mat-label>
+    <input
+      id="title"
+      type="text"
+      matInput
+      formControlName="title"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Description</mat-label>
+    <textarea
+      id="description"
+      formControlName="description"
+      matInput
+      required=""
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="5"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Status</mat-label>
+    <mat-select id="status" formControlName="status" required>
+      <mat-option value="0">Pending</mat-option>
+      <mat-option value="1">In Progress</mat-option>
+      <mat-option value="2">Done</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  @if(hasError) {
+    <mat-error>Error</mat-error>
+  }
+
+  <div class="w-full flex justify-around flex-wrap button-row">
+    <button class="button" matButton="filled" [disabled]="!taskForm.valid">
+      @if(!isLoading){Confirm}@else{<mat-spinner [diameter]="30"></mat-spinner>}
+    </button>
+
+  </div>
+</form>

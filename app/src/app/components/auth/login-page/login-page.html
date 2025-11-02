@@ -1,0 +1,44 @@
+<section class="full-size flex-center">
+  <div class="form-container box-shadow radius">
+    <h2>Login</h2>
+
+    <form class="flex flex-wrap w-full" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+
+      <mat-form-field class="mt-2 w-full">
+        <mat-label>Email</mat-label>
+        <input
+          id="email"
+          type="email"
+          matInput
+          placeholder="Ex. pat@example.com"
+          formControlName="email"
+          required
+        />
+
+        @if(emailFromField?.hasError('email')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="mt-2 w-full">
+        <mat-label>Password</mat-label>
+        <input id="password" type="password" matInput formControlName="password" required />
+      </mat-form-field>
+
+      @if(hasError) {
+        <div class="w-full text-center">
+          <mat-error>Invalid email or password</mat-error>
+        </div>
+      }
+
+      <div class="signup-link">
+        Don't have an account? <a href="register" routerLink="/register">Sign up</a>
+      </div>
+
+      <div class="w-full flex justify-around flex-wrap button-row">
+        <button class="button" matButton="filled" [disabled]="!loginForm.valid">Confirm</button>
+      </div>
+    </form>
+  </div>
+</section>
