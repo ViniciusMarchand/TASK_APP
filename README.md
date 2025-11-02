@@ -62,7 +62,7 @@ Senha: Admin@123
 
 -   Para alterar a role de um usuário, é necessário logar com uma conta
     **admin** (utilize a conta informada acima) no endpoint\
-    `http://localhost:5188/api/auth/login`.\
+    `http://localhost:5188/api/auth/login`
 
 -   Após o login, copie o **accessToken** retornado e utilize-o para
     acessar o endpoint abaixo (get) que necessita do id/uuid do usuário e a role que deseja adicionar a ele.
