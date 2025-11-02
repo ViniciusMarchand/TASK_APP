@@ -56,7 +56,7 @@ Senha: Admin@123
 
 -   Todo usuário registrado através do endpoint\
     `http://localhost:5188/api/auth/register`\
-    recebe **automaticamente** a role padrão **`member`**.\
+    recebe **automaticamente** a role padrão **`member`**
 
 -   Use esse endpoint para registrar usuários para teste
 
