@@ -50,6 +50,52 @@ Email: admin@local
 
 Senha: Admin@123
 
+### Instruções para Testar o RBAC (Controle de Acesso Baseado em Funções)
+
+#### Teste pelo **Backend**
+
+-   Todo usuário registrado através do endpoint\
+    `http://localhost:5188/api/auth/register`\
+    recebe **automaticamente** a role padrão **`member`**.\
+
+-   Use esse endpoint para registrar usuários para teste
+
+-   Para alterar a role de um usuário, é necessário logar com uma conta
+    **admin** (utilize a conta informada acima) no endpoint\
+    `http://localhost:5188/api/auth/login`.\
+
+-   Após o login, copie o **accessToken** retornado e utilize-o para
+    acessar o endpoint abaixo (get) que necessita do id/uuid do usuário e a role que deseja adicionar a ele.
+    Olhe o endpoint 'api/auth/users' (get) como admin para poder ver os id's dos usuários. 
+
+        http://localhost:5188/api/auth/assign-role/:uuid-do-usuario/:role
+
+-   Há **três tipos de roles disponíveis**:
+
+    -   `admin`
+    -   `manager`
+    -   `member`
+
+------------------------------------------------------------------------
+
+#### Teste pelo **Frontend**
+
+-   Na rota `/register`, é possível criar novos usuários normalmente.\
+-   Para atribuir ou alterar a role de um usuário:
+    1.  Acesse a rota `/login` e entre com uma conta **admin** (a mesma
+        mencionada acima, ou outra conta com essa permissão).\
+    2.  Após o login, você será redirecionado para a página `/home`.\
+    3.  Se o usuário logado for **admin**, um **botão de configurações
+        de administrador** aparecerá no canto superior direito.\
+    4.  Ao clicar nesse botão, você será levado à página de
+        administração, onde há uma **tabela listando todos os usuários
+        do sistema**.\
+    5.  Ao lado de cada usuário, há um **menu de seleção (select)** que
+        permite mudar sua role.\
+    6.  Assim que a nova role é selecionada, a alteração é **aplicada
+        automaticamente**.
+
+  
 ### Permissões
 Admin: Acesso total ao sistema
 
